@@ -11,7 +11,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnInstructorProfile_whenInstructorIdIsValid() {
-        test = extent.createTest("shouldReturnInstructorProfile_whenInstructorIdIsValid");
         given()
                 .when()
                 .get("/api/Instructor/profile/" + VALID_INS_ID)
@@ -22,7 +21,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnNotFound_whenInstructorIdDoesNotExist() {
-        test = extent.createTest("shouldReturnNotFound_whenInstructorIdDoesNotExist");
         given()
                 .when()
                 .get("/api/Instructor/profile/" + INVALID_ID)
@@ -32,7 +30,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnNotFound_whenInstructorHasNoExams() {
-        test = extent.createTest("shouldReturnNotFound_whenInstructorHasNoExams");
         given()
                 .when()
                 .get("/api/Instructor/" + INVALID_ID + "/exams")
@@ -42,7 +39,6 @@ public class InstructorTests extends BaseTest {
 
     @Test(groups = "examReady")
     public void shouldGenerateExamSuccessfully_whenValidCourseProvided() {
-        test = extent.createTest("shouldGenerateExamSuccessfully_whenValidCourseProvided");
         int newExamId =
                 given()
                         .contentType(ContentType.JSON)
@@ -64,7 +60,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnNotFound_whenCourseDoesNotExist() {
-        test = extent.createTest("shouldReturnNotFound_whenCourseDoesNotExist");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -81,7 +76,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnBadRequest_whenRequestedQuestionsExceedAvailable() {
-        test = extent.createTest("shouldReturnBadRequest_whenRequestedQuestionsExceedAvailable");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -98,7 +92,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnBadRequest_whenQuestionCountIsZero() {
-        test = extent.createTest("shouldReturnBadRequest_whenQuestionCountIsZero");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -115,7 +108,6 @@ public class InstructorTests extends BaseTest {
 
     @Test
     public void shouldReturnBadRequest_whenRequestBodyIsEmpty() {
-        test = extent.createTest("shouldReturnBadRequest_whenRequestBodyIsEmpty");
         given()
                 .contentType(ContentType.JSON)
                 .body("{}")

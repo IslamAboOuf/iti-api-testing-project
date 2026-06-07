@@ -18,7 +18,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldLoginSuccessfully_whenStudentCredentialsAreValid() {
-        test = extent.createTest("shouldLoginSuccessfully_whenStudentCredentialsAreValid");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -34,7 +33,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldLoginSuccessfully_whenInstructorCredentialsAreValid() {
-        test = extent.createTest("shouldLoginSuccessfully_whenInstructorCredentialsAreValid");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -50,7 +48,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldReturnUnauthorized_whenStudentEmailIsInvalid() {
-        test = extent.createTest("shouldReturnUnauthorized_whenStudentEmailIsInvalid");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -65,7 +62,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldReturnUnauthorized_whenStudentPasswordIsInvalid() {
-        test = extent.createTest("shouldReturnUnauthorized_whenStudentPasswordIsInvalid");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -80,7 +76,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldReturnUnauthorized_whenRoleIsIncorrect() {
-        test = extent.createTest("shouldReturnUnauthorized_whenRoleIsIncorrect");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -95,7 +90,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldAllowLogin_whenEmailCaseIsDifferent() {
-        test = extent.createTest("shouldAllowLogin_whenEmailCaseIsDifferent");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -110,7 +104,6 @@ public class AuthTests extends BaseTest {
 
     @Test
     public void shouldReturnBadRequest_whenRequestBodyIsEmpty() {
-        test = extent.createTest("shouldReturnBadRequest_whenRequestBodyIsEmpty");
         given()
                 .contentType(ContentType.JSON)
                 .body("{}")

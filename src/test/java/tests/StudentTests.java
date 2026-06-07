@@ -11,7 +11,6 @@ public class StudentTests extends BaseTest {
 
     @Test
     public void shouldReturnStudentProfile_whenStudentIdIsValid() {
-        test = extent.createTest("shouldReturnStudentProfile_whenStudentIdIsValid");
         given()
                 .when()
                 .get("/api/Student/" + VALID_STUDENT_ID + "/profile")
@@ -22,7 +21,6 @@ public class StudentTests extends BaseTest {
 
     @Test
     public void shouldReturnNotFound_whenStudentIdDoesNotExist() {
-        test = extent.createTest("shouldReturnNotFound_whenStudentIdDoesNotExist");
         given()
                 .when()
                 .get("/api/Student/" + INVALID_ID + "/profile")
@@ -32,7 +30,6 @@ public class StudentTests extends BaseTest {
 
     @Test(dependsOnGroups = "examReady")
     public void shouldSubmitExamSuccessfully_whenValidAnswersProvided() {
-        test = extent.createTest("shouldSubmitExamSuccessfully_whenValidAnswersProvided");
         int newStudentExamId =
                 given()
                         .contentType(ContentType.JSON)
@@ -54,7 +51,6 @@ public class StudentTests extends BaseTest {
 
     @Test(dependsOnMethods = "shouldSubmitExamSuccessfully_whenValidAnswersProvided")
     public void shouldReturnBadRequest_whenSubmittingExamTwice() {
-        test = extent.createTest("shouldReturnBadRequest_whenSubmittingExamTwice");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -72,7 +68,6 @@ public class StudentTests extends BaseTest {
 
     @Test
     public void shouldReturnNotFound_whenExamDoesNotExist() {
-        test = extent.createTest("shouldReturnNotFound_whenExamDoesNotExist");
         given()
                 .contentType(ContentType.JSON)
                 .body("""
@@ -89,7 +84,6 @@ public class StudentTests extends BaseTest {
 
     @Test(dependsOnMethods = "shouldSubmitExamSuccessfully_whenValidAnswersProvided")
     public void shouldReturnGradeSuccessfully_whenExamIsSubmitted() {
-        test = extent.createTest("shouldReturnGradeSuccessfully_whenExamIsSubmitted");
         given()
                 .when()
                 .get("/api/Exam/grade/" + BaseTest.studentExamId)
@@ -102,7 +96,6 @@ public class StudentTests extends BaseTest {
 
     @Test(dependsOnMethods = "shouldSubmitExamSuccessfully_whenValidAnswersProvided")
     public void shouldAllowExamReview_whenSubmissionExists() {
-        test = extent.createTest("shouldAllowExamReview_whenSubmissionExists");
         given()
                 .when()
                 .get("/api/Exam/Review/" + BaseTest.studentExamId)
@@ -112,7 +105,6 @@ public class StudentTests extends BaseTest {
 
     @Test(dependsOnGroups = "examReady")
     public void shouldNotExposeCorrectAnswers_whenFetchingExamQuestions() {
-        test = extent.createTest("shouldNotExposeCorrectAnswers_whenFetchingExamQuestions");
         String response = given()
                 .when()
                 .get("/api/Exam/" + BaseTest.examId)
